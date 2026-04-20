@@ -160,12 +160,18 @@
     const percent = Math.round((checked / checkboxes.length) * 100);
     progressBar.style.width = percent + "%";
     progressBar.textContent = percent + "% búið";
-    
+
     const celebration = document.getElementById("celebration");
-    if (percent === 100) {celebration.style.display = "block";
-    } else {
-      celebration.style.display = "none";
-  } // 
+
+if (percent === 100) {
+  celebration.style.display = "block";
+} else {
+  celebration.style.display = "none";
+}
+
+} 
+
+    
 
   // Hlaða vistuðum gildum
   checkboxes.forEach(box => {
