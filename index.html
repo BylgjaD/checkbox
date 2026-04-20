@@ -1,25 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="is">
 <head>
+  <meta charset="UTF-8">
+  <title>Verkefnalisti nemenda</title>
   <style>
     body {
-      font-family: Arial;
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: auto;
+      background: #f4f6f8;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    h2 {
+      background: #e0e7ff;
+      padding: 8px;
+      border-radius: 8px;
     }
 
     label {
       display: block;
-      margin: 10px 0;
-      font-size: 18px;
+      margin: 5px 0;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    .box {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
     }
   </style>
 </head>
+
 <body>
 
-<h2>Checklisti</h2>
+<h1>📋 Verkefni sem þarf að skila</h1>
 
-<label><input type="checkbox"> Verkefni 1</label>
-<label><input type="checkbox"> Verkefni 2</label>
-<label><input type="checkbox"> Verkefni 3</label>
+<div class="box">
+<h2>Stærðfræði</h2>
+<label><input type="checkbox" id="math1"> Einföldun III</label>
+<label><input type="checkbox" id="math2"> Jöfnur I</label>
+<label><input type="checkbox" id="math3"> Jöfnur II</label>
+<label><input type="checkbox" id="math4"> Jöfnur III</label>
+<label><input type="checkbox" id="math5"> Mælingar I</label>
+<label><input type="checkbox" id="math6"> Mælingar II</label>
+<label><input type="checkbox" id="math7"> Tími – hraði – vegalengd</label>
+<label><input type="checkbox" id="math8"> Horn og gráður</label>
+<label><input type="checkbox" id="math9"> Rúmfræðiverkefni – bók</label>
+<label><input type="checkbox" id="math10"> Sparnaður</label>
+</div>
+
+<div class="box">
+<h2>Íslenska</h2>
+<label><input type="checkbox" id="isl1"> Kappræður</label>
+<label><input type="checkbox" id="isl2"> Englar alheimsins</label>
+<label><input type="checkbox" id="isl3"> Hugtakakort/ættartré Gísli Súrsson</label>
+</div>
+
+<div class="box">
+<h2>Enska</h2>
+<label><input type="checkbox" id="eng1"> The conman</label>
+<label><input type="checkbox" id="eng2"> Stjörnukort</label>
+<label><input type="checkbox" id="eng3"> Just drop in (skjáskot)</label>
+<label><input type="checkbox" id="eng4"> Kynning um valið efni</label>
+</div>
+
+<div class="box">
+<h2>Danska</h2>
+<label><input type="checkbox" id="dan1"> Viðtal</label>
+<label><input type="checkbox" id="dan2"> Hlustunaræfingar</label>
+<label><input type="checkbox" id="dan3"> Alexander og Hanna</label>
+<label><input type="checkbox" id="dan4"> Den Dejligste Boy</label>
+<label><input type="checkbox" id="dan5"> Skab en historie</label>
+</div>
+
+<div class="box">
+<h2>Náttúrufræði</h2>
+<label><input type="checkbox" id="nat1"> Heimurinn/geimurinn kynning</label>
+<label><input type="checkbox" id="nat2"> Viðnám - tilraun</label>
+</div>
+
+<div class="box">
+<h2>Samfélagsfræði</h2>
+<label><input type="checkbox" id="sam1"> Ef ég væri</label>
+<label><input type="checkbox" id="sam2"> Stórveldi á fornöld</label>
+</div>
+
+<script>
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+  // Hlaða vistuðum gildum
+  checkboxes.forEach(box => {
+    const saved = localStorage.getItem(box.id);
+    if (saved === "true") {
+      box.checked = true;
+    }
+  });
+
+  // Vista þegar hakað er
+  checkboxes.forEach(box => {
+    box.addEventListener('change', () => {
+      localStorage.setItem(box.id, box.checked);
+    });
+  });
+</script>
 
 </body>
 </html>
