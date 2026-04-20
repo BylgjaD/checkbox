@@ -83,7 +83,10 @@
 <div class="progress-container">
   <div class="progress-bar" id="progressBar">0%</div>
 </div>
-
+<div id="celebration" style="display:none; text-align:center; margin:20px; font-size:24px;">
+   Mission completed, þú hefur lokið við öll þau verkefni sem þú áttir að skila! 👏
+</div>
+  
 <div class="box">
 <h2>Stærðfræði</h2>
 <label><input type="checkbox" id="math1"> Einföldun III</label>
@@ -157,6 +160,11 @@
     const percent = Math.round((checked / checkboxes.length) * 100);
     progressBar.style.width = percent + "%";
     progressBar.textContent = percent + "% búið";
+    
+    const celebration = document.getElementById("celebration");
+    if (percent === 100) {celebration.style.display = "block";
+    } else {
+      celebration.style.display = "none";
   }
 
   // Hlaða vistuðum gildum
